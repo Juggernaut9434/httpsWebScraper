@@ -1,3 +1,5 @@
+# Mike Mathews Jan 2020
+# specific url's that are used in home_take.py
 
 predefined_scans_base = "https://stockcharts.com/def/servlet/SC.scan"
 searches = {

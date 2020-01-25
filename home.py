@@ -1,6 +1,9 @@
 # Mike Mathews on Jan 4, 2020
+# The beta file for general_home that includes a specific example
+# of a table from StockCharts
 
 from utils import mikeutils
+
 
 class Home:
 

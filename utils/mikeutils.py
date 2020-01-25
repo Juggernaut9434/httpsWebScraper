@@ -1,3 +1,5 @@
+# Mike Mathews 2019
+
 from selenium import webdriver  # Imports the web driver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait  # Lets the Web wait until an element is found

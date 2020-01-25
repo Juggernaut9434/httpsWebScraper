@@ -1,25 +1,30 @@
+# Mike Mathews Jan 2019
+# A beta file of general_take that includes a specific example
+# of a table from StockCharts
 
 import pytest
 
 from utils import driverutils
-from page import general_home
-# import instance
+import home
+import instance
 import numpy
 
 
-def general_take(url):
+def test_bullish_macd_cross(search):
 
     # Set up the Driver
     driver = driverutils.get_driver(is_windowless=True)
     driver.set_window_size(1350, 900)
 
     # Initialize the Pages Needed
-    page = general_home.GeneralHome(driver)
-    url = url
+    page = home.Home(driver)
+    url = instance.predefined_scans_base + instance.searches[search]
     # Try the Test
     try:
-        page.load_page(url)
-        matrix = page.load_all_tables()
+        driver.get(url)
+        assert page.load_page()
+        assert page.sort_page()
+        matrix = page.make_table()
         return matrix
     # If it fails, let pytest fail
     except Exception as e:
@@ -29,6 +34,7 @@ def general_take(url):
         driver.close()
 
 
-mat = general_take("https://www.w3schools.com/html/html_tables.asp")
-numpy.savetxt("bar.csv", mat, delimiter="\n", fmt="%s",
+mat = test_bullish_macd_cross("parabolic sar")
+print(numpy.asarray(mat))
+numpy.savetxt("foo.csv", mat, delimiter=",", fmt="%s",
               newline='\n', header='', footer='', comments='# ', encoding=None)
