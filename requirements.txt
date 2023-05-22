@@ -2,5 +2,5 @@ selenium==3.141.0
 pytest==4.0.2
 chromedriver==2.24.1
 logzero==1.5.0
-requests==2.22.0
+requests==2.31.0
 numpy==1.18.0
